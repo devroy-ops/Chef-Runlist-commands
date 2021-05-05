@@ -1,0 +1,48 @@
+Chef- (Runlist commands)
+
+step-1 cd test-cookbook
+step-2 cd ..
+step-3 chef generate recipe test-recipe
+step-4 vi test-cookbook/recipes/test-recipe.rb
+step-5-copy content 
+step-6 chef-client -zr "recipe[test-cookbook::test-recipe]"
+Step-5 cat /etc/group (Check group)
+
+Note:- runlist commands:-
+
+Step-0  sudo chef-client -zr "recipe[test-cookbook::test-recipe],recipe[apache-cookbook::apache-recipe]" 
+step-1 vi apache-cookbook/recipes/default.rb
+
+step-2 add line in vi editer 
+include_recipe "apache-cookbook::apache-recipe"
+include_recipe "apache-cookbook::recipe-new"
+
+step-3chef-client -zr "recipe[test-cookbook::default],recipe[apache-cookbook::default]"
+
+
+*****************************************************************************
+execute "run a script" do
+command <<-EOH
+mkdir /devashish
+touch /roy
+EOH
+end
+
+***************create user*********
+
+user "rajput" do
+action :create
+end
+
+*************create group**********
+group "devops" do
+action :create
+members 'rajput'
+append true
+end
+
+*********************simple user commands**************
+
+user "priya"
+file "technical"
+
