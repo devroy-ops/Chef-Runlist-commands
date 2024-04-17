@@ -22,7 +22,7 @@ step-3chef-client -zr "recipe[test-cookbook::default],recipe[apache-cookbook::de
 
 *****************************************************************************
 execute "run a script" do
-command <<-EOH
+command <<-EOH (End of here) (End of hunk)
 mkdir /devashish
 touch /roy
 EOH
